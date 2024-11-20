@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  privatebin:
+    container_name: pvbin
+    image: privatebin/nginx-fpm-alpine:1.2.1
+    read_only: true
+    volumes:
+      - '/path/to/data:/srv/data' # updated data volume path
+      - '/path/to/conf.php:/srv/cfg/conf.php:ro' # updated config file path
+    ports:
+      - port:80 # updated port mapping
+    restart: always
